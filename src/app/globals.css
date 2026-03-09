@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ukrflix-red: #E50914;
+  --ukrflix-dark: #141414;
+  --ukrflix-gray: #808080;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #141414;
+  color: #e5e5e5;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #141414;
+}
+::-webkit-scrollbar-thumb {
+  background: #E50914;
+  border-radius: 2px;
+}
+
+/* Movie card hover effect */
+.movie-card {
+  transition: transform 0.3s ease, z-index 0s 0.3s;
+}
+.movie-card:hover {
+  transform: scale(1.08);
+  z-index: 10;
+  transition: transform 0.3s ease, z-index 0s 0s;
+}
+
+/* Row scroll */
+.movie-row {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.movie-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hero gradient */
+.hero-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(20, 20, 20, 0.95) 0%,
+    rgba(20, 20, 20, 0.7) 50%,
+    rgba(20, 20, 20, 0.1) 100%
+  );
+}
+
+.hero-bottom {
+  background: linear-gradient(
+    to top,
+    rgba(20, 20, 20, 1) 0%,
+    rgba(20, 20, 20, 0.5) 40%,
+    transparent 100%
+  );
+}
+
+/* Input styles */
+.ukrflix-input {
+  @apply bg-zinc-800 border border-zinc-600 text-white rounded px-4 py-2.5 w-full
+    focus:outline-none focus:border-white transition-colors placeholder:text-zinc-500;
+}
+
+/* Button styles */
+.btn-red {
+  @apply bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-2.5 rounded
+    transition-colors flex items-center gap-2 cursor-pointer;
+}
+
+.btn-gray {
+  @apply bg-zinc-700 hover:bg-zinc-600 text-white font-semibold px-6 py-2.5 rounded
+    transition-colors flex items-center gap-2 cursor-pointer;
+}
+
+/* Admin sidebar */
+.admin-nav-item {
+  @apply flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-400
+    hover:bg-zinc-800 hover:text-white transition-colors cursor-pointer;
+}
+.admin-nav-item.active {
+  @apply bg-red-600/20 text-red-400 border border-red-600/30;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #1f1f1f 25%, #2a2a2a 50%, #1f1f1f 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
