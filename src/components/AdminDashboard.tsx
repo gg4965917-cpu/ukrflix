@@ -6,8 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   LayoutDashboard, Film, Plus, Search, Trash2, Edit,
-  LogOut, RefreshCw, Download, Eye, EyeOff, Star,
-  CheckCircle, XCircle, Loader2, CloudDownload, Home,
+  LogOut, RefreshCw, Download, Eye, Star,
+  CheckCircle, XCircle, Loader2, DownloadCloud, Home,
   ChevronRight, TrendingUp, Zap,
 } from "lucide-react";
 import type { Movie } from "@/types";
@@ -175,7 +175,7 @@ export function AdminDashboard({ stats, recentMovies }: Props) {
     { id: "dashboard" as Tab, icon: LayoutDashboard, label: "Огляд" },
     { id: "movies" as Tab, icon: Film, label: "Фільми" },
     { id: "add" as Tab, icon: Plus, label: "Додати фільм" },
-    { id: "sync" as Tab, icon: CloudDownload, label: "Синхронізація TMDB" },
+    { id: "sync" as Tab, icon: DownloadCloud, label: "Синхронізація TMDB" },
   ];
 
   return (
